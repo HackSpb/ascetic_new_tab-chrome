@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New Tab</title>
+	
+<style type="text/css">
+body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
+	a {text-decoration: none}
+	a:hover {text-decoration: underline;}
+	#search  { text-align: right; width: 450px; padding: 10px;  border: 2px #fff solid;  border-radius: 10px; float: left;}
+	
+	input {font-size:x-large; line-height: 30px;}
+	#closedTabsDiv {max-width: 300px; float: left; font-size: small;margin-right: 10px;line-height: 20px; overflow: hidden;}
+	#closedTabsDiv_ a{color:#888;  margin-left: 10px;}
+
+	#TopSitesDiv {max-width: 300px; float: left; font-size: small; line-height: 20px;overflow: hidden;}
+	#TopSitesDiv a{color:#c66;margin-left: 10px;}
+	#BookMarksDiv {max-width: 300px; float: left; font-size: small; line-height: 20px;overflow: hidden;}
+	#BookMarksDiv a{color:#6c6;margin-left: 10px;}
+	#content {margin:0 auto; max-width: 1000px;}
+	#digital_watch {color: #fff; font-size: 120%; font-weight: bold; margin:10px auto; width: 400px; text-align: center;}
+	.clear {float: none; clear: both;}
+	.center {margin:10px auto; width: 600px;}
+	#dop {font-size: small; margin: 5px; width: 80px; float: left;}
+	#dop a{color: #333;}
+	#tips {position: absolute; top:150px; left: calc(50% - 250px); width: 500px; height:200px; font-size:small;border: solid 1px #ccc; background: #FFF; color:#000;}
+</style>
+</head>
+<body style='color:#FFF; font-size:x-large; background: rgb(0, 0, 0);'>
+	<div id="tips" style="display: none;"></div>
+	<div>
+		<div class="center">
+			<div id="search"> 
+		
+				<form action="https://yandex.ru/search/">Яндекс <input type="text" name="text" id="searchOne" autofocus src=
+				"https://suggest.yandex.ru/suggest-ya.cgi?ct=text/html&v=4&callback=otvetFun&part="></form>
+
+				<form action="https://www.google.ru/search" >Гугол <input type="text" name="q"  id="searchTwo" src="https://www.google.ru/complete/search?hl=ru&output=firefox&callback=otvetFun&q="></form>
+
+				<form action="https://duckduckgo.com/">DuckDuckGo <input type="text" name="q" id="searchThee"></form>
+			</div>
+		
+	    	<div id="dop">
+	    		<a href="https://yandex.ru/search/?text=ПОГОДА">погода</a>
+	    		<br /><a href="https://finance.rambler.ru/currencies/consensus/">валюта</a>
+
+	    		
+	    	</div>
+	    </div>
+	<div class="clear"></div>
+		<div id="digital_watch"></div>
+	
+	</div>
+	<br />
+	<div id="content">
+		<div id="closedTabsDiv">
+			<B id="closedTabsButton">Закрытые вкладки [+]</B>
+			<br /><div id="closedTabsDiv_"></div>
+		</div>
+		<div id="BookMarksDiv">
+			<B id="BookMarksButton">Закладки [+]</B>
+			<br /><div id="BookMarksDiv_"></div>
+		</div>
+		<div id="TopSitesDiv">
+			<B id="TopSitesButton">Популярные [+]</B>
+			<br /><div id="TopSitesDiv_"></div>
+		</div>
+	</div>
+	<script src="my.js"></script>
+</body>
+</html>
