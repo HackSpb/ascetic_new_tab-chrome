@@ -1,4 +1,21 @@
+/////////// search tips
+
+/*
 var request = new XMLHttpRequest();
+	
+	request.open('GET', 'http://suggest.yandex.ru/suggest-ya.cgi?ct=text/html&v=4&part='+part, true);
+	request.onload = function (e) {
+    if (request.readyState === 4) {
+	        // Проверяем, успешно ли прошло получение данных.
+	        if (request.status === 200) {
+	            console.log(request.responseText);
+	        } else {
+	            console.error(request.statusText);
+	        }
+	    }
+	};
+
+request.send();*/
 
 	function addScript(src) {
 	  var elem = document.createElement("script");
@@ -28,20 +45,6 @@ function getTips(search){
 
 	var part=search.value;
 	console.log(part);
-	/*
-	request.open('GET', 'http://suggest.yandex.ru/suggest-ya.cgi?ct=text/html&v=4&part='+part, true);
-	request.onload = function (e) {
-    if (request.readyState === 4) {
-	        // Проверяем, успешно ли прошло получение данных.
-	        if (request.status === 200) {
-	            console.log(request.responseText);
-	        } else {
-	            console.error(request.statusText);
-	        }
-	    }
-	};
-
-	request.send();*/
 	keyCode = window.event.keyCode;
 	if(keyCode==40){ //down key
 		if(selectLine!=-1)document.getElementById('tip'+selectLine).style.backgroundColor="#FFF";
@@ -70,6 +73,34 @@ document.onclick =function () {
 	tips.innerHTML="";
 	tips.style.display="none";
 }
+
+
+document.getElementById('rus').addEventListener('keydown',function (){getTranslate(this);});
+//document.getElementById('rus').addEventListener('click',function (){getTranslate(this);});
+document.getElementById('eng').addEventListener('keydown',function (){getTranslate(this);});
+//document.getElementById('eng').addEventListener('click',function (){getTranslate(this);});
+
+
+
+function translateFun(response){
+	console.log(response);
+	if(response['lang']=='ru-en')
+		document.getElementById('eng').value=response['text'][0];
+	else
+		document.getElementById('rus').value=response['text'][0];
+}
+
+function getTranslate(translate) {
+	keyCode=window.event.keyCode;
+	if(translate.value.length>1)
+	if(keyCode==13 || keyCode==37 || keyCode==39 || event.button<2){
+		var src="https://translate.yandex.net/api/v1/tr.json/translate?callback=translateFun&lang="+translate.getAttribute('lang')+"&srv=wizard&options=1&text=";
+		addScript(src+translate.value);
+	}
+}
+
+
+//////////////////// frames
 
 document.getElementById('closedTabsButton').onclick=function () {
 	var div = document.getElementById("closedTabsDiv_");

@@ -25,6 +25,8 @@ body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
 	#dop {font-size: small; margin: 5px; width: 80px; float: left;}
 	#dop a{color: #333;}
 	#tips {position: absolute; top:150px; left: calc(50% - 250px); width: 500px; height:200px; font-size:small;border: solid 1px #ccc; background: #FFF; color:#000;}
+	#rus, #eng{width: 200px; height: 100px; }
+	#titleRus, #titleEng {width: 200px;float: left}
 </style>
 </head>
 <body style='color:#FFF; font-size:x-large; background: rgb(0, 0, 0);'>
@@ -39,6 +41,8 @@ body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
 				<form action="https://www.google.ru/search" >Гугол <input type="text" name="q"  id="searchTwo" src="https://www.google.ru/complete/search?hl=ru&output=firefox&callback=otvetFun&q="></form>
 
 				<form action="https://duckduckgo.com/">DuckDuckGo <input type="text" name="q" id="searchThee"></form>
+				<div id="titleRus">Ru:</div><div id="titleEng">En:</div>
+				<textarea id="rus" lang="ru-en"></textarea><textarea  id="eng" lang="en-ru"></textarea>
 			</div>
 		
 	    	<div id="dop">
