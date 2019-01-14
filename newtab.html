@@ -8,17 +8,17 @@
 body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
 	a {text-decoration: none}
 	a:hover {text-decoration: underline;}
-	#search  { text-align: right; width: 450px; padding: 10px;  border: 2px #fff solid;  border-radius: 10px; float: left;}
+	#search  { text-align: right; width: 470px; padding: 10px;  border: 2px #fff solid;  border-radius: 10px; float: left;}
 	
 	input {font-size:x-large; line-height: 30px;}
-	#closedTabsDiv {max-width: 300px; float: left; font-size: small;margin-right: 10px;line-height: 20px; overflow: hidden;}
-	#closedTabsDiv_ a{color:#888;  margin-left: 10px;}
+	
+	#closedTabsDiv , #TopSitesDiv,#BookMarksDiv , #utilitiesButton{max-width: 300px; float: left; font-size: small; line-height: 20px;overflow: hidden;}
 
-	#TopSitesDiv {max-width: 300px; float: left; font-size: small; line-height: 20px;overflow: hidden;}
-	#TopSitesDiv a{color:#c66;margin-left: 10px;}
-	#BookMarksDiv {max-width: 300px; float: left; font-size: small; line-height: 20px;overflow: hidden;}
+	#TopSitesDiv a {color:#c66;margin-left: 10px;}
 	#BookMarksDiv a{color:#6c6;margin-left: 10px;}
-	#content {margin:0 auto; max-width: 1000px;}
+    #closedTabsDiv_ a, #utilitiesDiv a {color:#888;  margin-left: 10px; font-size: small;}
+
+	.content {margin:0 auto; max-width: 1000px;}
 	#digital_watch {color: #fff; font-size: 120%; font-weight: bold; margin:10px auto; width: 400px; text-align: center;}
 	.clear {float: none; clear: both;}
 	.center {margin:10px auto; width: 600px;}
@@ -27,6 +27,8 @@ body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
 	#tips {position: absolute; top:150px; left: calc(50% - 250px); width: 500px; height:200px; font-size:small;border: solid 1px #ccc; background: #FFF; color:#000;}
 	#rus, #eng{width: 200px; height: 100px; }
 	#titleRus, #titleEng {width: 200px;float: left}
+    
+    #utilitiesDiv {display:none; font-size: small;}
 </style>
 </head>
 <body style='color:#FFF; font-size:x-large; background: rgb(0, 0, 0);'>
@@ -38,7 +40,7 @@ body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
 				<form action="https://yandex.ru/search/">Яндекс <input type="text" name="text" id="searchOne" autofocus src=
 				"https://suggest.yandex.ru/suggest-ya.cgi?ct=text/html&v=4&callback=otvetFun&part="></form>
 
-				<form action="https://www.google.ru/search" >Гугол <input type="text" name="q"  id="searchTwo" src="https://www.google.ru/complete/search?hl=ru&output=firefox&callback=otvetFun&q="></form>
+				<form action="https://www.google.ru/search" >Google <input type="text" name="q"  id="searchTwo" src="https://www.google.ru/complete/search?hl=ru&output=firefox&callback=otvetFun&q="></form>
 
 				<form action="https://duckduckgo.com/">DuckDuckGo <input type="text" name="q" id="searchThee"></form>
 				<div id="titleRus">Ru:</div><div id="titleEng">En:</div>
@@ -47,9 +49,7 @@ body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
 		
 	    	<div id="dop">
 	    		<a href="https://yandex.ru/search/?text=ПОГОДА">погода</a>
-	    		<br /><a href="https://finance.rambler.ru/currencies/consensus/">валюта</a>
 
-	    		
 	    	</div>
 	    </div>
 	<div class="clear"></div>
@@ -57,20 +57,34 @@ body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
 	
 	</div>
 	<br />
-	<div id="content">
+	<div class="content">
 		<div id="closedTabsDiv">
-			<B id="closedTabsButton">Закрытые вкладки [+]</B>
+			<B id="closedTabsButton">Закрытые вкладки [+/-]</B>
 			<br /><div id="closedTabsDiv_"></div>
 		</div>
 		<div id="BookMarksDiv">
-			<B id="BookMarksButton">Закладки [+]</B>
+			<B id="BookMarksButton">Закладки [+/-]</B>
 			<br /><div id="BookMarksDiv_"></div>
 		</div>
 		<div id="TopSitesDiv">
-			<B id="TopSitesButton">Популярные [+]</B>
+			<B id="TopSitesButton">Популярные [+/-]</B>
 			<br /><div id="TopSitesDiv_"></div>
 		</div>
 	</div>
+	<div class="clear"></div>
+    <br />
+    <div class="content">
+        <B id="utilitiesButton">Полезности [+/-]</B><div class="clear"></div>
+        <div id="utilitiesDiv">
+	    		
+                <li><a href="https://yandex.ru/tune/adv">Отключить таргетинг Яндекса</a>
+                <li><a href="https://www.google.com/settings/ads/anonymous">Отключить слежку Гугла</a><!--a href="https://www.google.com/settings/ads/anonymous">(Анонимус)</a-->
+                <li><a href="https://adssettings.google.com/authenticated">Отключить сбор ПД Гуглом</a>
+                <li><a href="https://chrome.google.com/webstore/search/ghostery?hl=ru">Защита от трекинга (Ghostery)</a>
+                <li><a href="https://chrome.google.com/webstore/search/adblock?hl=ru">Установить adblock</a>
+                <li>chrome://settings/clearBrowserData - удалить историю
+            </div>    
+    </div>
 	<script src="my.js"></script>
 </body>
 </html>

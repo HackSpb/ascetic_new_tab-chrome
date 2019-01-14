@@ -44,7 +44,6 @@ document.getElementById('searchTwo').addEventListener('keydown',function (){getT
 function getTips(search){
 
 	var part=search.value;
-	console.log(part);
 	keyCode = window.event.keyCode;
 	if(keyCode==40){ //down key
 		if(selectLine!=-1)document.getElementById('tip'+selectLine).style.backgroundColor="#FFF";
@@ -93,7 +92,7 @@ function translateFun(response){
 function getTranslate(translate) {
 	keyCode=window.event.keyCode;
 	if(translate.value.length>1)
-	if(keyCode==13 || keyCode==37 || keyCode==39 || event.button<2){
+	if(keyCode==13 || keyCode==37 || keyCode==39 || keyCode==32 ||event.button<2){
 		var src="https://translate.yandex.net/api/v1/tr.json/translate?callback=translateFun&lang="+translate.getAttribute('lang')+"&srv=wizard&options=1&text=";
 		addScript(src+translate.value);
 	}
@@ -103,16 +102,17 @@ function getTranslate(translate) {
 //////////////////// frames
 
 document.getElementById('closedTabsButton').onclick=function () {
-	var div = document.getElementById("closedTabsDiv_");
+    var div = document.getElementById("closedTabsDiv_");
 	if(div.innerHTML=="")
 	{div.style.display="block";
 		chrome.sessions.getRecentlyClosed(function(sessions){
 		var count=0;
+	console.log(sessions);
 		for(var i = 0; i<sessions.length; i++){
 				var sObt = sessions[i]; 
 				//tab type or window type
 				if(sObt.tab) {
-					if(sObt.tab.url.indexOf('chrome://') ==-1 & sObt.tab.url.indexOf('view-source:') ==-1) {
+					if(sObt.tab.url.indexOf('chrome://') ==-1 & sObt.tab.url.indexOf('about:') ==-1 & sObt.tab.url.indexOf('view-source:') ==-1) {
 					count++;
 					div.insertAdjacentHTML('beforeend',' <img src="chrome://favicon/'+sObt.tab.url+'" > <a href="'+sObt.tab.url+'">'+sObt.tab.title+'</a><br />');
 					}
@@ -172,6 +172,18 @@ function printBookmarks(bookmarks) {
 	   
   });
 }
+
+
+document.getElementById('utilitiesButton').onclick=function () {
+    var div = document.getElementById("utilitiesDiv");
+    if(div.style.display=="block") div.style.display="none";
+	else div.style.display="block";
+window.location.href="chrome://settings/clearBrowserData";
+}
+
+
+//// Watch
+
   function digitalWatch() {
     var date = new Date();
     var hours = date.getHours();

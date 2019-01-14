@@ -1,10 +1,18 @@
 {
+"update_url": "https://clients2.google.com/service/update2/crx",
+
 "manifest_version": 2,    
 	"name": "Ascetic New Tab",
+     "short_name":"Ascetic Tab",
     "description": "Very simle (ascetical) black theme fot new tab and yandex ",
-    "version": "1.5",
+    "version": "1.7",
+    "icons": { 
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+            },
     "permissions" : ["management","history","topSites","tabs","sessions","alarms","bookmarks", "chrome://favicon/"],
- 	"content_security_policy": "script-src 'self' https://suggest.yandex.ru https://www.google.ru https://translate.yandex.net; object-src 'self' " ,
+ 	"content_security_policy": "script-src 'self' https://suggest.yandex.ru https://www.google.ru https://translate.yandex.net chrome://settings/clearBrowserData; object-src 'self' " ,
     "chrome_url_overrides" : {
         "newtab": "newtab.html"
     }
