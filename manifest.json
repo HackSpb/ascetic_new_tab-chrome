@@ -1,12 +1,12 @@
 {
 "update_url": "https://clients2.google.com/service/update2/crx",
 
-"manifest_version": 2,    
+"manifest_version": 2,
 	"name": "Ascetic New Tab",
      "short_name":"Ascetic Tab",
     "description": "Very simle (ascetical) black theme fot new tab and yandex ",
-    "version": "1.7",
-    "icons": { 
+    "version": "1.8",
+    "icons": {
             "16": "icon16.png",
             "48": "icon48.png",
             "128": "icon128.png"

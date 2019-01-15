@@ -3,15 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>New Tab</title>
-	
+
 <style type="text/css">
 body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
-	a {text-decoration: none}
-	a:hover {text-decoration: underline;}
+	a {text-decoration: none; color:#ccc; }
+	a:hover {text-decoration: underline; color:#ccc;}
 	#search  { text-align: right; width: 470px; padding: 10px;  border: 2px #fff solid;  border-radius: 10px; float: left;}
-	
+  #search a {font-size:10px;}
 	input {font-size:x-large; line-height: 30px;}
-	
+
 	#closedTabsDiv , #TopSitesDiv,#BookMarksDiv , #utilitiesButton{max-width: 300px; float: left; font-size: small; line-height: 20px;overflow: hidden;}
 
 	#TopSitesDiv a {color:#c66;margin-left: 10px;}
@@ -27,7 +27,7 @@ body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
 	#tips {position: absolute; top:150px; left: calc(50% - 250px); width: 500px; height:200px; font-size:small;border: solid 1px #ccc; background: #FFF; color:#000;}
 	#rus, #eng{width: 200px; height: 100px; }
 	#titleRus, #titleEng {width: 200px;float: left}
-    
+
     #utilitiesDiv {display:none; font-size: small;}
 </style>
 </head>
@@ -35,8 +35,8 @@ body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
 	<div id="tips" style="display: none;"></div>
 	<div>
 		<div class="center">
-			<div id="search"> 
-		
+			<div id="search">
+
 				<form action="https://yandex.ru/search/">Яндекс <input type="text" name="text" id="searchOne" autofocus src=
 				"https://suggest.yandex.ru/suggest-ya.cgi?ct=text/html&v=4&callback=otvetFun&part="></form>
 
@@ -45,16 +45,18 @@ body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
 				<form action="https://duckduckgo.com/">DuckDuckGo <input type="text" name="q" id="searchThee"></form>
 				<div id="titleRus">Ru:</div><div id="titleEng">En:</div>
 				<textarea id="rus" lang="ru-en"></textarea><textarea  id="eng" lang="en-ru"></textarea>
+				<br /><a href="https://translate.google.com/?hl=ru&tab=TT">google Translate</a>
+				<button id="saveNote">сохранить</button>
+				<button id="showNotes">показать заметки</button>
+				<button id="clearNotes">стереть заметки</button>
 			</div>
-		
-	    	<div id="dop">
-	    		<a href="https://yandex.ru/search/?text=ПОГОДА">погода</a>
 
+	    	<div id="dop">
 	    	</div>
 	    </div>
 	<div class="clear"></div>
 		<div id="digital_watch"></div>
-	
+
 	</div>
 	<br />
 	<div class="content">
@@ -76,14 +78,14 @@ body {background: url('chrome-search://theme/IDR_THEME_NTP_BACKGROUND');}
     <div class="content">
         <B id="utilitiesButton">Полезности [+/-]</B><div class="clear"></div>
         <div id="utilitiesDiv">
-	    		
+                <li><a href="https://yandex.ru/search/?text=ПОГОДА">погода</a>
                 <li><a href="https://yandex.ru/tune/adv">Отключить таргетинг Яндекса</a>
                 <li><a href="https://www.google.com/settings/ads/anonymous">Отключить слежку Гугла</a><!--a href="https://www.google.com/settings/ads/anonymous">(Анонимус)</a-->
                 <li><a href="https://adssettings.google.com/authenticated">Отключить сбор ПД Гуглом</a>
                 <li><a href="https://chrome.google.com/webstore/search/ghostery?hl=ru">Защита от трекинга (Ghostery)</a>
                 <li><a href="https://chrome.google.com/webstore/search/adblock?hl=ru">Установить adblock</a>
                 <li>chrome://settings/clearBrowserData - удалить историю
-            </div>    
+            </div>
     </div>
 	<script src="my.js"></script>
 </body>
